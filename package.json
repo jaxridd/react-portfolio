@@ -9,12 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "@heroicons/react": "^2.0.18",
-    "@sanity/image-url": "^1.0.2",
-    "@sanity/vision": "^3.11.5",
-=======
->>>>>>> parent of 7640782 (Created Contact, Projects, and Skills Sections)
     "@types/node": "20.2.3",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
