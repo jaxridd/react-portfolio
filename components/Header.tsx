@@ -40,6 +40,7 @@ export default function Header({}: Props) {
             />
         </motion.div>
 
+            <Link href='#contact'>
         <motion.div 
             initial={{
                 x: 500,
@@ -52,19 +53,19 @@ export default function Header({}: Props) {
                 scale: 1,
             }}
             transition={{ duration: 1.5 }}
-            onClick={() => (window.location.href = "#contact")}
             className='flex flex-row items-center text-gray-300 cursor-pointer'
         >
-            <SocialIcon
+            <SocialIcon 
                 className='cursor-pointer'
                 network='email'
-                fgColor="gray"
+                fgColor="gray" 
                 bgColor="transparent"
             />
             <p className='uppercase hidden md:inline-flex text-sm text-gray-400'>
                 Get In Touch
             </p>
         </motion.div>
+        </Link>
     </header>
   );
 };
