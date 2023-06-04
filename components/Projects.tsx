@@ -1,10 +1,13 @@
+import { urlFor } from '@/sanity';
+import { Project } from '@/typings';
 import { motion } from 'framer-motion';
 import React from 'react'
 
-type Props = {}
+type Props = {
+    projects: Project[];
+}
 
-function Projects({}: Props) {
-    const projects = [1, 2, 3, 4, 5];
+function Projects({ projects }: Props) {
   return (
     <motion.div 
         initial={{ opacity: 0 }}
@@ -20,7 +23,7 @@ function Projects({}: Props) {
         <div className='relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory
         z-20 scrollbar-thin scrollbar-track-gray-400/20
         scrollbar-thumb-[#F7AB0A]/80'>
-            {projects.map((project, i) => (
+            {projects?.map((project, i) => (
                 <div className='w-screen max-w-[1000px] flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center
                 p-20 md:p-44 h-screen'>
                     <motion.img
@@ -31,7 +34,7 @@ function Projects({}: Props) {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.2 }} 
                         viewport={{ once: true }}
-                        src="https://stackdiary.com/wp-content/uploads/2022/12/Best-Portfolio-Website-Builders.png" 
+                        src={urlFor(project?.image).url()}
                         alt="" 
                     />
 
@@ -39,13 +42,18 @@ function Projects({}: Props) {
                         <h4 className='text-4xl font-semibold text-center'>
                             <span className='underline decoration-[#F7AB0A]/50'>Project {i+1}:
                             </span>{" "}
-                            Portfolio Website
+                            {project.title}
                         </h4>
+                        <div className='flex items-center space-x-2 justify-center'>
+                        {project?.technologies.map(technology => (
+                            <img className="h-10 w-11"
+                            key={technology._id} src={urlFor(technology.image).url()} alt="" />
+                        ))}
+                        </div>
+
 
                         <p className='text-lg text-center md:text-left'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus commodi animi 
-                            ipsam impedit quos natus, omnis doloribus quibusdam repudiandae, distinctio cumque 
-                            rem harum cupiditate. Cumque eos unde maxime tenetur ex!
+                           {project.summary}
                         </p>
                     </div>
                 </div>
