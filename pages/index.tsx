@@ -1,4 +1,4 @@
-import type { GetStaticProps, NextPage } from 'next';
+import type { GetStaticProps, } from 'next';
 import Head from 'next/head';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
@@ -7,7 +7,6 @@ import WorkExperience from '@/components/WorkExperience'
 import Skills from '@/components/Skills';
 import Projects from '@/components/Projects';
 import ContactMe from '@/components/ContactMe';
-
 import { Experience, PageInfo, Project, Skill, Social } from '@/typings';
 import { fetchPageInfo } from '@/utils/fetchPageInfo';
 import { fetchExperiences } from '@/utils/fetchExperiences';
@@ -29,7 +28,7 @@ const Home = ({pageInfo, experiences, skills, projects, socials }: Props) => {
     overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20
     scrollbar-thumb-[#F7AB0A]/80'>
       <Head>
-        <title>Jax's Portfolio</title>
+        <title>{pageInfo?.name} - Portfolio</title>
       </Head>
 
       <Header socials={socials} />
@@ -81,6 +80,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     },
 
 
-    revalidate: 100,
+    revalidate: 10,
   }
 }
+
