@@ -21,7 +21,7 @@ function Skills({skills}: Props) {
         </h3>
     
         <h3 className='absolute top-36 uppercase tracking-[3px] text-gray-500 text-sm'>
-            Hover over a skill for currentvercel --version proficiency
+            Hover over a skill for current proficiency
         </h3>
 
         <div className='grid grid-cols-4 gap-5'>
