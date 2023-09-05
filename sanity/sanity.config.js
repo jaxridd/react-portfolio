@@ -4,14 +4,9 @@ import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
 
 export default defineConfig({
-  name: 'default',
-  title: 'indigo-meerkat',
-
   projectId: 'ekvp9jb5',
   dataset: 'production',
-
   plugins: [deskTool(), visionTool()],
-
   schema: {
     types: schemaTypes,
   },
